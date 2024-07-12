@@ -1,0 +1,131 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+html, body {
+    height: 100%;
+    width: 100%;
+    background-color: #F8F4FF; /* Set the background color of the entire webpage */
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+nav {
+    position: fixed;
+    font-size: 20px;
+    top: 0 ;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 2em;
+}
+
+.container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.gallery {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.item {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 85px; /* Smaller width */
+    height: 85px; /* Same as width for circular shape */
+    background: #b0b0b0;
+    margin: 10px;
+    border-radius: 50%; /* For rounded shape */
+    border: 2px solid black;
+    cursor: pointer;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.item.expanded {
+    color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 10px; /* Add some padding for better text containment */
+    box-sizing: border-box;
+}
+
+.text-container {
+    text-align: center;
+    width: 100%; /* Ensure text container takes full width */
+    max-width: 100%; /* Ensure text container does not exceed the circle */
+}
+
+.text-container h3 {
+    margin-bottom: 10px;
+    font-size: 4px; /* Adjust font size for better readability */
+}
+
+.text-container p {
+    font-size: 2px; /* Adjust font size for better readability */
+    margin: 0.5em 0; /* Add some margin for readability */
+}
+
+.text-container a {
+    display: block;
+    text-align: center;
+    margin-top: 10px;
+    text-decoration: none;
+    color: black;
+}
+
+.text-container ul li {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    margin-bottom: 4px;
+    font-size: 2px;
+    margin: 0.5em 0;
+}
+
+.text-container a img {
+    display: block;
+    margin: 5px auto;
+    width: 10px; /* Adjust size as needed */
+    height: 10px; /* Adjust size as needed */
+}
+
+.fixed-image {
+    position: fixed;
+    bottom: 0; /* Stick to the bottom */
+    left: 54%;
+    transform: translateX(-50%);
+    width: 800px; /* Adjust as needed */
+    height: auto; /* Maintain aspect ratio */
+}
+
+.fixed-d-curve {
+    position: fixed;
+    top: 70%; /* Adjust as needed */
+    left: 30%; /* Adjust as needed */
+    transform: translate(-50%, -50%) scale(1.5, 2); /* Center the image */
+    width: 200px; /* Adjust size as needed */
+    height: auto; /* Maintain aspect ratio */
+    z-index: 0; /* Ensure it is below the balls and other elements */
+}
+
+.fixed-u-curve {
+    position: fixed;
+    top: 30%; /* Adjust as needed */
+    left: 70%; /* Adjust as needed */
+    transform: translate(-50%, -50%) scale(1.5, 2); /* Center the image */
+    width: 100px; /* Adjust size as needed */
+    height: auto; /* Maintain aspect ratio */
+    z-index: 0; /* Ensure it is below the balls and other elements */
+}
