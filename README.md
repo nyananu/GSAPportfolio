@@ -35,10 +35,10 @@ Simply double-click the index.html file or open it with your preferred web brows
 
 ## Technologies Used
 
-HTML: Markup language for creating the structure of the website.
-CSS: Stylesheet language for styling the website.
-JavaScript: Programming language for adding interactivity and dynamic content.
-GSAP: JavaScript library for creating high-performance animations.
+- HTML: Markup language for creating the structure of the website.
+- CSS: Stylesheet language for styling the website.
+- JavaScript: Programming language for adding interactivity and dynamic content.
+- GSAP: JavaScript library for creating high-performance animations.
 ***
 
 ## Contact
