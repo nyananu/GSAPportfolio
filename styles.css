@@ -4,7 +4,6 @@
     box-sizing: border-box;
 }
 
-
 html, body {
     height: 100%;
     width: 100%;
@@ -15,7 +14,7 @@ html, body {
 nav {
     position: fixed;
     font-size: 20px;
-    top: 0 ;
+    top: 0;
     width: 100%;
     display: flex;
     justify-content: space-between;
@@ -124,8 +123,82 @@ nav {
     position: fixed;
     top: 30%; /* Adjust as needed */
     left: 70%; /* Adjust as needed */
-    transform: translate(-50%, -50%) scale(1.5, 2); /* Center the image */
+    transform: translate(-50%, -50%) scale(1.5, 2); 
     width: 100px; /* Adjust size as needed */
     height: auto; /* Maintain aspect ratio */
     z-index: 0; /* Ensure it is below the balls and other elements */
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 1200px) {
+    .fixed-image {
+        width: 600px;
+    }
+
+    .fixed-d-curve, .fixed-u-curve {
+        width: 150px;
+    }
+}
+
+@media (max-width: 768px) {
+    nav {
+        font-size: 16px;
+        padding: 1em;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .item {
+        width: 60px;
+        height: 60px;
+    }
+
+    .text-container h3 {
+        font-size: 3px;
+    }
+
+    .text-container p, .text-container ul li {
+        font-size: 1.5px;
+    }
+
+    .text-container a img {
+        width: 8px;
+        height: 8px;
+    }
+
+    .fixed-image {
+        width: 400px;
+    }
+
+    .fixed-d-curve, .fixed-u-curve {
+        width: 100px;
+    }
+}
+
+@media (max-width: 480px) {
+    .item {
+        width: 40px;
+        height: 40px;
+    }
+
+    .text-container h3 {
+        font-size: 2px;
+    }
+
+    .text-container p, .text-container ul li {
+        font-size: 1px;
+    }
+
+    .text-container a img {
+        width: 5px;
+        height: 5px;
+    }
+
+    .fixed-image {
+        width: 250px;
+    }
+
+    .fixed-d-curve, .fixed-u-curve {
+        width: 80px;
+    }
 }

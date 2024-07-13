@@ -2,7 +2,6 @@ const items = document.querySelectorAll('.item');
 const container = document.querySelector('.container');
 const numberOfItems = items.length;
 const angleIncrement = (2 * Math.PI) / numberOfItems;
-const radius = 300;
 
 let isGalleryOpen = false;
 
@@ -66,22 +65,60 @@ const content = [
             </span>
         `
     },
-      {
+    {
         heading: "About Me",
         text: `
             <p>I'm a software engineer with a passion for full-stack web development.</p>
-            <p>I'm currently working with web animations using GSAP and Framer motion</p>
+            <p>I'm currently working with web animations using GSAP</p>
         `
     },
     {
         heading: "Experience",
         text: `
             <p>Samsung R&D : Frontend Engineer Jan 2023 - Sep 2023</p>
-            <p>Article: Full-stack Web Developer May 2020 - Jan 2021</p>
+            <p>Article: Full-stack Web Developer May 2021 - Jan 2022</p>
         `
     },
-    
 ];
+
+let radius;
+
+function updateRadius() {
+    if (window.innerWidth <= 480) {
+        radius = 100; // Mobile screen radius
+    } else if (window.innerWidth <= 768) {
+        radius = 200; // Tablet screen radius
+    } else {
+        radius = 300; // Default radius for desktop screens
+    }
+}
+
+updateRadius();
+
+window.addEventListener('resize', () => {
+    updateRadius();
+    positionItems(); // Reposition items on window resize
+});
+
+function positionItems() {
+    items.forEach((item, index) => {
+        const angle = angleIncrement * index;
+        const initialRotation = (angle * 180 / Math.PI) - 90;
+        const x = centerX + radius * Math.cos(angle);
+        const y = centerY + radius * Math.sin(angle);
+
+        gsap.to(item, {
+            left: x + 'px',
+            top: y + 'px',
+            rotation: initialRotation,
+            scale: 1,
+            duration: 1,
+            ease: 'power2.out'
+        }, index * 0.1);
+    });
+}
+
+positionItems();
 
 items.forEach(function(item, index) {
     // Set a solid background color
@@ -92,7 +129,7 @@ items.forEach(function(item, index) {
     const x = centerX + radius * Math.cos(angle);
     const y = centerY + radius * Math.sin(angle);
 
-    gsap.set(item, {scale: 0});
+    gsap.set(item, { scale: 0 });
 
     tl.to(item, {
         left: x + 'px',
